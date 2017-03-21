@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实验position</title>
+    <style>
+         body{ margin: 0; padding:0;}
+        .test{ height: 150px; width:150px; border: solid 1px goldenrod; text-align: center;}
+
+        /*position:static;定位时偏移属性不起作用*/
+        .static-div{ position: static; top: 50px;}
+
+        /*position：relative;定位时，使用偏移属性设置偏移量后，文档流中会保留该元素在文档中原有的位置,因此会出现与其他元素重叠的情形*/
+        .relative-div-second{ position: relative; top: 30px; margin-left: 30px; background-color: greenyellow;}
+        .relative-div-first{ position: relative;}
+         /*position：relative；定位的元素margin不折叠*/
+        .relative-mar{ position: relative; margin-left: 30px;}
+
+         /*position:absolute;定位时，脱离文档流，相对于最近的使用position定位(static除外)的父元素，直至找到body,如果没有则相对于body*/
+        .absolute-div{ position: absolute; top: 0px; left:200px; background-color: rgba(0,0,0,0.1);}
+        .absolute-div-first{ position: absolute; margin-top: 40px;}
+        .absolute-div-second{ position: absolute; height:50px; width: 50px; top:20px; left:30px;}
+
+        /*fiexd*/
+        .fiexd-div{ position: fixed; right: 0px;}
+
+        /*center：与absolute一致，但偏移定位是以定位祖先元素的中心点为参考。盒子在其包含容器垂直水平居中。（CSS3）
+          page：与absolute一致。元素在分页媒体或者区域块内，元素的包含块始终是初始包含块，否则取决于每个absolute模式。（CSS3）
+          sticky：对象在常态时遵循常规流。它就像是relative和fixed的合体，当在屏幕中时按常规流排版，当卷动到屏幕外时则表现如fixed。该属性的表现是现实中你见到的吸附效果。（CSS3）
+        */
+
+        /*position:absolute;实现时间紧随其后*/
+         #demo{
+             width:300px;
+             margin:10px auto;
+             padding:10px;
+             background:#eee;
+             text-align:left;
+         }
+         #demo li{
+             position:relative;
+             height:25px;
+             padding-right:80px;
+             line-height:25px;
+             white-space:nowrap;
+         }
+         #demo li a{
+             display:inline-block;
+             overflow:hidden;
+             height:100%;
+             white-space:normal;
+             word-wrap:break-word;
+             word-break:break-all;
+         }
+         #demo li time{
+             position:absolute;
+             padding-left:10px;
+             color:#8c8c8c;
+         }
+    </style>
+</head>
+<body>
+    <div class="static-div test">STATIC</div>
+
+    <div class="relative-div-second test">
+        RELATIVE
+        <div class="relative-mar test">测试margin叠加</div>
+    </div>
+    <div class="relative-div-first test">RELATIVE</div>
+
+    <div class="absolute-div test">ABSOLUTE</div>
+    <div class="absolute-div-first test">
+        <div class="absolute-div-second test">ABSOLUTE</div>
+    </div>
+
+    <div class="fiexd-div test">FIXED</div>
+
+    <!--position:absolute;实现时间紧随其后-->
+    <div id="demo">
+        <ul>
+            <li>
+                <a href="?" title="这是一个长到令人发指的随便什么标题">这是一个长到令人发指的随便什么标题</a>
+                <time>2009.11.23</time>
+            </li>
+            <li>
+                <a href="?">这是一个随便什么标题</a>
+                <time>2009.11.23</time>
+            </li>
+            <li>
+                <a href="?">这是一个更长的随便什么标题</a>
+                <time>2009.11.23</time>
+            </li>
+            <li>
+                <a href="?">这是一个更长更长的随便什么标题</a>
+                <time>2009.11.23</time>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
