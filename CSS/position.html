@@ -16,7 +16,7 @@
          /*position：relative；定位的元素margin不折叠*/
         .relative-mar{ position: relative; margin-left: 30px;}
 
-         /*position:absolute;定位时，脱离文档流，相对于最近的使用position定位(static除外)的父元素，直至找到body,如果没有则相对于body*/
+         /*position:absolute;定位时，脱离文档流，相对于最近的使用position定位(static除外)的父元素，直至找到body,如果没有则相对于body,与其他元素不会产生margin折叠*/
         .absolute-div{ position: absolute; top: 0px; left:200px; background-color: rgba(0,0,0,0.1);}
         .absolute-div-first{ position: absolute; margin-top: 40px;}
         .absolute-div-second{ position: absolute; height:50px; width: 50px; top:20px; left:30px;}
