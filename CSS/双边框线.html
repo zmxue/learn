@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双边框线</title>
+    <style>
+        .test{
+            position: relative;
+            padding: 12px;
+            width: 192px;
+        }
+        .test:before{
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-left: 5px double #f00;
+            border-top: 5px double red;
+            height: 81px;
+            width: 15px;
+            /* background-color: #ff0; */
+            /* z-index: 10; */
+            content: '';
+        }
+        .test:after{
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-right: 5px double #f00;
+            border-bottom: 5px double red;
+            height: 81px;
+            width: 15px;
+            /* background-color: #ff0; */
+            /* z-index: 10; */
+            content: '';
+        }
+    </style>
+</head>
+<body>
+    <div class="test">我们的故事:</div>
+</body>
+</html>
