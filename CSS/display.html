@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8" />
+    <title>display实验</title>
+    <style>
+        .test{
+            height: 200px;
+            width: 200px;
+            border: solid 1px darkgoldenrod;
+        }
+        /*display:none;隐藏元素，不会为元素保留位置。visibility：hidden;会保留元素原位置*/
+        .test-f{
+            display: none;
+        }
+        /*内联元素（行内元素）高宽不可设置，外边距（margin）不可控，内边距（padding）可设置，可使用position定位并设置上下左右间距*/
+        .inline-div{
+            display:inline;
+        }
+        /*块元素高宽可设置，外边距（margin）可控，内边距（padding）可设置，可使用box-sizing:border-box;使容器的大小未设置的高宽*/
+        .block-div{
+            display: block;
+        }
+        .list-item-div{
+            display: list-item;
+        }
+        /*IE6,7支持inline元素转换成inline-block，但不支持block元素转换成inline-block，所以非inline元素在IE6,7下要转换成inline-block，需先转换成inline，然后触发hasLayout，以此来获得和inline-block类似的效果；你可以这样：*/
+        /*div {*/
+            /*display: inline-block;*/
+            /**display: inline;*/
+            /**zoom: 1;*/
+        /*}*/
+        .run-in-div{ display: run-in;}
+        /*弹性盒子：display：box;inline-box;flexbox;inline-flexbox;flex;inline-flex;*/
+
+    </style>
+</head>
+<body>
+<div class="test test-f"></div>
+<div class="test"></div>
+<div class="inline-div test">INLINE</div>
+<div class="block-div test">BLOCK</div>
+<div class="list-item-div">list-item</div>
+<div class="list-item-div">list-item</div>
+<span class="run-in-div test">呵呵哒</span>
+</body>
+</html>
